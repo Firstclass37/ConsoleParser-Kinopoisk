@@ -1,0 +1,63 @@
+﻿
+@{
+    @model IEnumerable<Repository.Film>
+}
+    @{
+        List<SelectListItem> genreList = new List<SelectListItem>();
+        List<SelectListItem> producerList = new List<SelectListItem>();
+        Repository.DbRepository repository = new Repository.DbRepository();
+        foreach (var genre in repository.Genres)
+        {
+            genreList.Add(new SelectListItem() { Text = genre.Name, Value = genre.Name });
+        }
+        foreach (var producer in repository.Producers)
+        {
+            producerList.Add(new SelectListItem() {Text = producer.Name, Value = producer.Name});
+        }
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewBag.Tittle</title>
+</head>
+<body>
+<div>
+    <form method="get">
+        <div>
+            <label>Year:</label>
+            <input type="number" name="year" />
+
+            <label>Country:</label>
+            <input type="text" name="country"/>
+
+            <label>Genre</label>
+            @Html.DropDownList("genre", genreList,"all genre")
+
+            <label>Producer</label>
+            @Html.DropDownList("producer", producerList, "all producers")
+
+            <input type="submit" value="Filter" />
+        </div>
+    </form>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Year</th>
+            <th>Details</th>
+        </tr>
+        @foreach (var film in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(model => film.Name)</td>
+                <td>@Html.DisplayFor(model => film.Year)</td>
+                <td>@Html.ActionLink("Details", "About", new {id = film.FilmId}) </td>
+            </tr>
+        }
+    </table>
+</div>
+</body>
+</html>

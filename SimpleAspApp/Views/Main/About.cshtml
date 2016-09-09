@@ -1,0 +1,53 @@
+﻿
+@{
+    @model Repository.Film
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>About</title>
+    <link href="/Content/Style.css" rel="stylesheet">
+</head>
+<body>
+<div>
+    <div class ="name-info">
+        <h2>@Html.DisplayFor(model => model.Name)</h2>
+    </div>
+    <div class="poster">
+        @Html.Raw(String.Format("<img src='{0}' />", @Model.PosterUrl))
+    </div>
+    <div class="info">
+        <div>
+            @Html.LabelFor(model => model.Country)
+            <a href="/?country=@Model.Country">@Model.Country </a> 
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Year)
+            <a href="/?year=@Model.Year">@Model.Year </a>  
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Description)
+            @Html.DisplayFor(model => model.Description)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Genres)
+            @foreach (var genre in Model.Genres)
+            {
+               <a href="/?genre=@genre.Name">@genre.Name </a>           
+            }
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Producers)
+            @foreach (var prod in Model.Producers)
+            {
+                <a href="/?producer=@prod.Name">@prod.Name</a>
+            }
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

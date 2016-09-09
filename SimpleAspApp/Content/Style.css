@@ -1,0 +1,25 @@
+﻿.poster {
+    display: inline-block;
+    width: 30%;
+    margin: 10px;
+}
+.info {
+    display: inline-block;
+    width: 60%;
+    margin: 10px;
+    vertical-align: top;
+    font-size: medium;
+}
+.name-info {
+    width: 100%;
+    text-align: center;
+    font-size: large;
+    font-family: fantasy;
+}
+a{
+    text-decoration: none;  
+}
+a:hover {
+    color: green;
+}
+
