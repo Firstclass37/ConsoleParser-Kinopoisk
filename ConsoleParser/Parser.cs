@@ -27,9 +27,16 @@ namespace ConsoleParser
             int i = 1;
             while (i < 5)
             {
-                var doc = GetPageHtml(i);
-                ParsePage(doc);
-                i++;
+                try
+                {
+                    var doc = GetPageHtml(i);
+                    ParsePage(doc);
+                    i++;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
             }
             
         }
