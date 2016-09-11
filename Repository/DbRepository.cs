@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Repository
 {
@@ -163,16 +162,6 @@ namespace Repository
         {
             var film = context.FilmsInfos.Where(f => f.FilmId == filmId).Include("Genres").Include("Producers").FirstOrDefault();
             return film;           
-        }
-        /// <summary>
-        /// Удаляет все данные из БД
-        /// </summary>
-        public void ClearDb()
-        {
-            context.FilmsInfos.RemoveRange(context.FilmsInfos);
-            context.Genres.RemoveRange(context.Genres);
-            context.Producers.RemoveRange(context.Producers);
-            context.SaveChanges();
-        }
+        }        
     }
 }

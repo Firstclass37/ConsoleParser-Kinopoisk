@@ -17,7 +17,7 @@
         <h2>@Html.DisplayFor(model => model.Name)</h2>
     </div>
     <div class="poster">
-        @Html.Raw(String.Format("<img src='{0}' />", @Model.PosterUrl))
+        @Html.Raw(String.Format("<img src='/Content/Posters/{0}' alt='{1}'/>", @Model.IdOnSite + ".jpg",@Model.Name))
     </div>
     <div class="info">
         <div>

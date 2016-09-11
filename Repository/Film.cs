@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mime;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace Repository
 {
     public class Film
     {
+        [Key]
         public int FilmId { get; set; }
 
+        public int IdOnSite { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public int Year { get; set; }

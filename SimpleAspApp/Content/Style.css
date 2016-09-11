@@ -22,4 +22,8 @@ a{
 a:hover {
     color: green;
 }
+.poster img {
+    width: 100%;
+    height: 100%;
+}
 
